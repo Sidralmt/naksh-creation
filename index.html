@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Naksh Creation | House Map, 3D Design and Construction</title>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@500;600;700&family=Hanken+Grotesk:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#0e1116;--bg2:#151a22;--ink:#f2efe8;--mute:#9aa3ad;--gold:#e0894f;--line:#262e3a;--card:#1a212b;--bp:#4aa3d9;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:light){:root:not([data-theme="dark"]){--bg:#f6f3ec;--bg2:#ebe6da;--ink:#1a1f26;--mute:#58616b;--gold:#b4561f;--line:#d8d1c0;--card:#fffdf8;--bp:#2c78a8}}
+:root[data-theme="light"]{--bg:#f6f3ec;--bg2:#ebe6da;--ink:#1a1f26;--mute:#58616b;--gold:#b4561f;--line:#d8d1c0;--card:#fffdf8;--bp:#2c78a8}
+:root[data-theme="dark"]{--bg:#0e1116;--bg2:#151a22;--ink:#f2efe8;--mute:#9aa3ad;--gold:#e0894f;--line:#262e3a;--card:#1a212b;--bp:#4aa3d9}
+html{scroll-behavior:smooth;scroll-padding-top:env(safe-area-inset-top,0px)}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:400 17px/1.65 "Hanken Grotesk",system-ui,sans-serif;overflow-x:clip}
+h1,h2,h3{font-family:"Bricolage Grotesque","Hanken Grotesk",system-ui,sans-serif;font-weight:600;line-height:1.05;margin:0;letter-spacing:-.02em}
+a{color:inherit}.wrap{max-width:1080px;margin:0 auto;padding:0 22px;perspective:1000px}
+nav{display:flex;justify-content:space-between;align-items:center;padding:20px 0}
+nav b{font:700 22px "Bricolage Grotesque",sans-serif;display:flex;align-items:center;gap:10px}
+nav a{margin-left:22px;text-decoration:none;color:var(--mute);font-size:15px}
+.hero{position:relative;overflow:hidden;padding-bottom:90px}
+#scene{position:absolute;inset:0;width:100%;height:100%;pointer-events:none}
+.hero .wrap{position:relative;z-index:2}
+.badge{display:inline-block;border:1.5px solid var(--gold);color:var(--gold);border-radius:999px;padding:4px 14px;font-size:14px;margin-top:clamp(30px,7vw,70px)}
+.hero h1{font-size:clamp(48px,10vw,108px);max-width:8ch;margin-top:14px;background:linear-gradient(120deg,var(--ink) 40%,var(--gold) 90%);-webkit-background-clip:text;background-clip:text;color:transparent}
+.hero p{max-width:46ch;color:var(--mute);font-size:19px;margin:20px 0 28px}
+.btns{display:flex;gap:12px;flex-wrap:wrap}
+.btn{display:inline-block;padding:14px 26px;border-radius:999px;text-decoration:none;font-weight:600;font-size:16px;border:1.5px solid var(--gold);cursor:pointer;background:none;color:var(--ink)}
+.btn.fill{background:var(--gold);color:#12100d}
+a:focus-visible,.btn:focus-visible,input:focus-visible,select:focus-visible{outline:3px solid var(--gold);outline-offset:3px}
+section{padding:78px 0}
+h2{font-size:clamp(36px,6vw,60px);margin-bottom:12px;perspective:1000px}
+h2 .w{display:inline-block;margin-right:.25em}
+.lead{color:var(--mute);max-width:54ch;margin:0 0 34px}
+.grid{display:grid;gap:16px;perspective:1000px}
+.g4{grid-template-columns:repeat(4,1fr)}.g3{grid-template-columns:repeat(3,1fr)}
+.card{padding:26px 22px;border:1px solid var(--line);border-radius:6px 22px 6px 22px;background:color-mix(in srgb,var(--card) 82%,transparent);backdrop-filter:blur(8px);box-shadow:0 18px 40px rgba(0,0,0,.2)}
+.card .em{font-size:40px;line-height:1}.card h3{font-size:25px;margin:14px 0 8px}.card p{margin:0;color:var(--mute);font-size:15px}
+.step b{font:700 44px "Bricolage Grotesque",sans-serif;color:var(--gold)}
+.plan{display:grid;grid-template-columns:1.3fr 1fr;gap:36px;align-items:center}
+.plan svg{width:100%;height:auto;border:1px solid var(--line);border-radius:18px;background:color-mix(in srgb,var(--card) 70%,transparent);padding:10px}
+.plan path{fill:none;stroke:var(--bp);stroke-width:3;stroke-linecap:square}
+.plan text{fill:var(--mute);font:500 13px "Hanken Grotesk",sans-serif;text-anchor:middle}
+.ph{border-radius:6px 22px 6px 22px;min-height:180px;display:flex;align-items:flex-end;background:linear-gradient(160deg,#2b3a4d,#10151c);box-shadow:0 18px 40px rgba(0,0,0,.25)}
+.ph span{margin:14px;font-size:14px;color:#f2efe8;background:rgba(5,8,12,.6);padding:4px 12px;border-radius:999px}
+.calc{display:grid;grid-template-columns:1fr 1fr;gap:18px;padding:30px;border:1px solid var(--line);border-radius:24px;background:color-mix(in srgb,var(--card) 85%,transparent);backdrop-filter:blur(10px)}
+.calc label{display:flex;flex-direction:column;gap:6px;font-size:15px;color:var(--mute)}
+.calc select,.calc input{padding:12px;border-radius:12px;border:1px solid var(--line);background:var(--bg);color:var(--ink);font:16px "Hanken Grotesk",sans-serif}
+.calc .btn{grid-column:1/-1;text-align:center}
+.contact{background:color-mix(in srgb,var(--bg2) 70%,transparent)}
+footer{padding:28px 0;text-align:center;color:var(--mute);font-size:14px}
+.bg{position:fixed;inset:0;z-index:-3;pointer-events:none;background-image:linear-gradient(color-mix(in srgb,var(--bp) 14%,transparent) 1px,transparent 1px),linear-gradient(90deg,color-mix(in srgb,var(--bp) 14%,transparent) 1px,transparent 1px);background-size:56px 56px;-webkit-mask-image:radial-gradient(ellipse at 50% 40%,#000 25%,transparent 85%);mask-image:radial-gradient(ellipse at 50% 40%,#000 25%,transparent 85%)}
+.glow{position:fixed;width:60vmax;height:60vmax;border-radius:50%;filter:blur(80px);opacity:.2;z-index:-2;pointer-events:none;background:radial-gradient(circle,var(--gold),transparent 65%);left:-20vmax;top:-15vmax;animation:dr 28s ease-in-out infinite alternate}
+.glow.b{background:radial-gradient(circle,var(--bp),transparent 65%);left:auto;top:auto;right:-25vmax;bottom:-25vmax;animation-delay:-11s}
+@keyframes dr{0%{transform:translate(0,0) scale(1)}100%{transform:translate(14vw,16vh) scale(1.15)}}
+@keyframes heroFadeUp{from{opacity:0;transform:translateY(28px)}to{opacity:1;transform:translateY(0)}}
+@keyframes softPop{0%{opacity:0;transform:translateY(18px) scale(.97)}100%{opacity:1;transform:translateY(0) scale(1)}}
+.hero .badge{animation:heroFadeUp .7s ease-out both}
+.hero h1{animation:heroFadeUp .9s .12s ease-out both}
+.hero p{animation:heroFadeUp .8s .24s ease-out both}
+.hero .btns{animation:heroFadeUp .8s .36s ease-out both}
+.card,.ph{animation:softPop .7s ease-out both;animation-timeline:view();animation-range:entry 0% entry 35%}
+.btn{transition:transform .22s ease,box-shadow .22s ease,background-color .22s ease}
+.btn:hover{transform:translateY(-3px);box-shadow:0 10px 24px rgba(224,137,79,.22)}
+.card{transition:border-color .25s ease,box-shadow .25s ease}
+.card:hover{border-color:var(--gold);box-shadow:0 22px 48px rgba(0,0,0,.28)}
+@media(prefers-reduced-motion:reduce){
+ .hero .badge,.hero h1,.hero p,.hero .btns,.card,.ph{animation:none!important}
+ .btn,.card{transition:none!important}
+}
+
+#bgc{position:fixed;inset:0;width:100%;height:100%;z-index:-1;pointer-events:none}
+@media(max-width:760px){.g4,.g3{grid-template-columns:1fr 1fr}.plan{grid-template-columns:1fr}.calc{grid-template-columns:1fr;padding:22px}nav a{display:none}#scene{opacity:.5}section{padding:58px 0}}
+@media(max-width:480px){.g4,.g3{grid-template-columns:1fr}}
+@media(prefers-reduced-motion:reduce){.glow{animation:none}}
+</style>
+</head>
+<body>
+<div class="bg" id="grid" aria-hidden="true"></div><div class="glow" aria-hidden="true"></div><div class="glow b" aria-hidden="true"></div>
+<canvas id="bgc" aria-hidden="true"></canvas>
+
+<header class="hero">
+ <canvas id="scene" aria-hidden="true"></canvas>
+ <div class="wrap">
+  <nav><b><svg width="26" height="26" viewBox="0 0 26 26" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M3 12L13 3l10 9M6 10v12h14V10M11 22v-7h4v7"/></svg>Naksh Creation</b><div><a href="#services">Services</a><a href="#plan">Floor plan</a><a href="#process">Process</a><a href="#enquiry">Enquire</a></div></nav>
+  <span class="badge">Floor plans · 3D design · Construction</span>
+  <h1>Naksh Creation</h1>
+  <p>We design your house map, show you the outside and the inside in 3D before a single brick is laid, and then build it.</p>
+  <div class="btns"><a class="btn fill" href="#enquiry">Plan my house</a><a class="btn" href="#services">Our services</a></div>
+ </div>
+</header>
+
+<main>
+<section id="services" style="padding-top:20px"><div class="wrap">
+ <h2>What we do</h2><p class="lead">From the first sketch of your plot to the final coat of paint.</p>
+ <div class="grid g4">
+  <div class="card fly"><div class="em">📐</div><h3>House map design</h3><p>Naksha and floor plans made around your plot, family and budget.</p></div>
+  <div class="card fly"><div class="em">🏡</div><h3>3D exterior</h3><p>See the front, sides and roof of your house before you build.</p></div>
+  <div class="card fly"><div class="em">🛋️</div><h3>3D interior</h3><p>Rooms, kitchen and furniture laid out and shown in 3D.</p></div>
+  <div class="card fly"><div class="em">🏗️</div><h3>Construction</h3><p>Our team builds exactly what you saw in the design.</p></div>
+ </div>
+</div></section>
+
+<section id="plan"><div class="wrap plan">
+ <div>
+  <h2>Your map, drawn clearly</h2>
+  <p class="lead">Every room, wall and door is planned on paper first. Scroll and watch a sample floor plan draw itself.</p>
+  <div class="btns"><a class="btn" href="#enquiry">Get my plan</a></div>
+ </div>
+ <svg id="fp" viewBox="0 0 600 420" role="img" aria-label="Sample floor plan with living room, kitchen, two bedrooms and a bathroom">
+  <path pathLength="1" d="M40 40H560V380H40Z"/>
+  <path pathLength="1" d="M300 40V190H560"/>
+  <path pathLength="1" d="M40 230H350"/>
+  <path pathLength="1" d="M250 230V380"/>
+  <path pathLength="1" d="M350 190V380"/>
+  <path pathLength="1" style="stroke:var(--gold)" d="M130 380H190M300 190V150M350 300V340"/>
+  <text x="170" y="140">Living room</text><text x="430" y="120">Kitchen</text><text x="145" y="310">Bedroom 1</text><text x="300" y="310">Bath</text><text x="455" y="290">Bedroom 2</text>
+ </svg>
+</div></section>
+
+<section id="process"><div class="wrap">
+ <h2>How it works</h2><p class="lead">Four clear steps, and you approve each one.</p>
+ <div class="grid g4">
+  <div class="card step fly"><b>1</b><h3>Meet &amp; measure</h3><p>We visit the plot and listen to what you need.</p></div>
+  <div class="card step fly"><b>2</b><h3>2D map</h3><p>You get the floor plan and make changes.</p></div>
+  <div class="card step fly"><b>3</b><h3>3D views</h3><p>See your house inside and outside in 3D.</p></div>
+  <div class="card step fly"><b>4</b><h3>Build</h3><p>We construct it and hand over the keys.</p></div>
+ </div>
+</div></section>
+
+<section><div class="wrap">
+ <h2>Our projects</h2><p class="lead">Designs and houses from our work.</p>
+ <div class="grid g3"><div class="ph fly"><span>3D exterior view</span></div><div class="ph fly"><span>Living room design</span></div><div class="ph fly"><span>House under construction</span></div></div>
+</div></section>
+
+<section id="enquiry"><div class="wrap">
+ <h2>Plan your house</h2><p class="lead">Tell us about your plot and send the details to us on WhatsApp.</p>
+ <div class="calc fly">
+  <label>What do you need<select id="sv"><option>House map (floor plan)</option><option>3D exterior design</option><option>3D interior design</option><option>Full design and construction</option></select></label>
+  <label>Plot size (sq ft)<input id="sz" type="number" min="100" step="50" value="1200" inputmode="numeric"></label>
+  <label>Floors<select id="fl"><option>Ground floor</option><option>Ground + 1</option><option>Ground + 2</option><option>More than 3</option></select></label>
+  <label>Your name<input id="nm" type="text" placeholder="Your name" autocomplete="name"></label>
+  <a id="wa" class="btn fill" target="_blank" rel="noopener" href="#">Send enquiry on WhatsApp</a>
+ </div>
+</div></section>
+
+<section class="contact"><div class="wrap">
+ <h2>Contact us</h2>
+ <p class="lead" style="margin:0">Call or WhatsApp: +91 60050 78802<br>Your office address, your town</p>
+</div></section>
+</main>
+<footer>© Naksh Creation</footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<script>
+var NUM='916005078802'; /* replace with the real WhatsApp number, with country code */
+(function(){
+var $=function(i){return document.getElementById(i)},calm=window.matchMedia&&matchMedia('(prefers-reduced-motion:reduce)').matches;
+// enquiry link
+function enq(){var m='Hello Naksh Creation, I would like to enquire.\nNeed: '+$('sv').value+'\nPlot size: '+$('sz').value+' sq ft\nFloors: '+$('fl').value+($('nm').value?'\nName: '+$('nm').value:'');
+ $('wa').href='https://wa.me/'+NUM+'?text='+encodeURIComponent(m)}
+['sv','sz','fl','nm'].forEach(function(i){$(i).addEventListener('input',enq)});enq();
+// split headings into words
+document.querySelectorAll('section h2').forEach(function(h){h.innerHTML=h.textContent.split(' ').map(function(w){return '<span class="w">'+w+'</span>'}).join(' ')});
+// floor plan draws itself
+var paths=document.querySelectorAll('#fp path');
+paths.forEach(function(p){p.style.strokeDasharray=1;p.style.strokeDashoffset=calm?0:1});
+function drawPlan(){if(calm)return;var r=$('fp').getBoundingClientRect(),p=Math.min(1,Math.max(0,(innerHeight*.85-r.top)/(innerHeight*.6)));
+ paths.forEach(function(el,i){var q=Math.min(1,Math.max(0,p*1.5-i*.12));el.style.strokeDashoffset=1-q})}
+// scroll fly-in from the sides
+function upd(){if(calm)return;var vh=innerHeight,els=document.querySelectorAll('h2 .w,.lead,.fly');
+ for(var i=0;i<els.length;i++){var el=els[i],w=el.classList.contains('w'),host=w?el.parentNode:el,r=host.getBoundingClientRect();
+  if(r.bottom<-200)continue;
+  if(el.dataset.s===undefined){var k=w?[].indexOf.call(host.children,el):i;el.dataset.s=k%2?1:-1;el.dataset.d=w?k*.14:0}
+  var dir=+el.dataset.s,p=Math.min(1,Math.max(0,(vh*.96-r.top)/(vh*.42)-(+el.dataset.d))),q=Math.pow(1-p,3);
+  el.style.translate=(dir*q*180)+'px 0 '+(-q*260)+'px';el.style.rotate='0 1 0 '+(-dir*q*55)+'deg';el.style.opacity=1-q}}
+var tk=false,gr=$('grid');
+function on(){if(!tk){tk=true;requestAnimationFrame(function(){tk=false;upd();drawPlan();gr.style.backgroundPosition='0 '+(-scrollY*.25)+'px'})}}
+addEventListener('scroll',on,{passive:true});addEventListener('resize',on);upd();drawPlan();
+// background: floating architecture icons that move with scroll
+var cv=$('bgc'),x=cv.getContext('2d'),W,H,F=[],dpr=Math.min(devicePixelRatio||1,2),lastY=scrollY,vel=0;
+var E=['\uD83C\uDFE0','\uD83D\uDCD0','\uD83C\uDFD7\uFE0F','\uD83D\uDECB\uFE0F','\uD83E\uDDF1','\uD83E\uDE9F','\uD83D\uDD28','\uD83D\uDCCF','\uD83C\uDFE1','\uD83E\uDE91'];
+function size(){W=innerWidth;H=innerHeight;cv.width=W*dpr;cv.height=H*dpr;x.setTransform(dpr,0,0,dpr,0,0);F=[];
+ for(var i=0;i<(W>760?14:8);i++)F.push({e:E[i%E.length],x:W>760?(i%2?Math.random()*.2:.8+Math.random()*.2):Math.random(),y:Math.random()*(H+200),z:Math.random(),r:Math.random()*6,d:i%2?1:-1,ph:Math.random()*6})}
+addEventListener('resize',size);size();
+function draw(ms){var t=ms/1000,y=scrollY;vel+=((y-lastY)-vel)*.15;lastY=y;x.clearRect(0,0,W,H);x.textAlign='center';x.textBaseline='middle';var span=H+200;
+ F.forEach(function(o){var py=((o.y-y*(.25+.7*o.z)-(calm?0:t*6*o.z))%span+span)%span-100,px=o.x*W+(calm?0:Math.sin(t*.6+o.ph)*22+vel*1.4*o.z),
+  rot=o.r+(calm?0:t*.15*o.d+y*.004*o.d*(.5+o.z)+vel*.02*o.d),sc=1+Math.min(Math.abs(vel)*.012,.35)*o.z;
+  x.save();x.translate(px,py);x.rotate(rot);x.scale(sc,sc);x.globalAlpha=.14+.26*o.z;x.font=(30+50*o.z)+'px "Apple Color Emoji","Segoe UI Emoji","Noto Color Emoji",sans-serif';x.fillText(o.e,0,0);x.restore()});
+ if(!calm)requestAnimationFrame(draw)}
+requestAnimationFrame(draw);
+// 3D hero: a house that builds itself, then separates into layers as you scroll
+if(!window.THREE)return;
+var hero=document.querySelector('.hero'),R;try{R=new THREE.WebGLRenderer({canvas:$('scene'),alpha:true,antialias:true})}catch(e){return}
+R.setPixelRatio(Math.min(devicePixelRatio||1,2));
+var S=new THREE.Scene(),C=new THREE.PerspectiveCamera(36,1,.1,100);C.position.set(6.5,5,9.5);C.lookAt(0,1.4,0);
+S.add(new THREE.AmbientLight(0xffffff,.7));var L=new THREE.DirectionalLight(0xfff1d8,1.1);L.position.set(5,9,6);S.add(L);
+var L2=new THREE.PointLight(0xe0894f,1,24);L2.position.set(-5,3,4);S.add(L2);
+var edge=new THREE.LineBasicMaterial({color:0x0e1116,transparent:true,opacity:.55});
+function box(w,h,d,c,x0,y0,z0,parent){var g=new THREE.BoxGeometry(w,h,d),m=new THREE.Mesh(g,new THREE.MeshStandardMaterial({color:c,roughness:.8}));m.position.set(x0||0,y0||0,z0||0);
+ m.add(new THREE.LineSegments(new THREE.EdgesGeometry(g),edge));(parent||m).add&&parent&&parent.add(m);return m}
+var H0=new THREE.Group();S.add(H0);
+var layers=[];function layer(){var g=new THREE.Group();H0.add(g);layers.push(g);return g}
+var l0=layer();box(4.6,.25,3.6,0x8a8f96,0,0,0,l0);
+var l1=layer();box(4,1.4,3,0xe8dfcf,0,.95,0,l1);
+box(.75,1.1,.06,0x5a3a22,0,.8,1.53,l1);
+[-1.3,1.3].forEach(function(px){box(.7,.55,.06,0xffd58a,px,1.05,1.53,l1)});
+var l2=layer();box(4,1.4,3,0xdcd2bf,0,2.35,0,l2);
+[-1.3,0,1.3].forEach(function(px){box(.6,.6,.06,0xffd58a,px,2.4,1.53,l2)});
+box(1.9,.08,.7,0x6b7078,0,1.7,1.9,l2);
+var l3=layer(),rg=new THREE.ConeGeometry(2.95,1.2,4),roof=new THREE.Mesh(rg,new THREE.MeshStandardMaterial({color:0xc4663a,roughness:.7}));
+roof.rotation.y=Math.PI/4;roof.scale.set(1.02,1,.8);roof.position.y=3.65;roof.add(new THREE.LineSegments(new THREE.EdgesGeometry(rg),edge));l3.add(roof);
+var gr3=new THREE.GridHelper(14,28,0x4aa3d9,0x4aa3d9);gr3.position.y=-.2;gr3.material.transparent=true;gr3.material.opacity=.35;S.add(gr3);
+var mx=0,my=0;addEventListener('pointermove',function(e){mx=(e.clientX/innerWidth-.5)*2;my=(e.clientY/innerHeight-.5)*2});
+function sz(){var w=hero.clientWidth,h=hero.clientHeight;R.setSize(w,h,false);C.aspect=w/h;C.updateProjectionMatrix();var hw=3.6*C.aspect;
+ if(w>760){H0.scale.setScalar(.82);H0.userData.x=Math.max(.8,hw-2.5);H0.userData.y=-.5}else{H0.scale.setScalar(.58);H0.userData.x=0;H0.userData.y=.4}}
+addEventListener('resize',sz);sz();
+var t0=null;function fr(ms){if(t0===null)t0=ms;var t=(ms-t0)/1000,sp=Math.min(scrollY/800,1),ex=1.5*sp;
+ layers.forEach(function(g,i){var intro=calm?1:Math.min(1,Math.max(0,t*.7-i*.25)),e=1-Math.pow(1-intro,3);g.position.y=i*ex+(1-e)*6;g.visible=e>0});
+ H0.position.set(H0.userData.x,H0.userData.y+Math.sin(t*1.1)*.06,0);
+ H0.rotation.y=(calm?.5:t*.2)+mx*.5+scrollY*.004;H0.rotation.x=my*.06;
+ gr3.position.set(H0.userData.x,-.2+H0.userData.y*0,0);
+ R.render(S,C);if(!calm)requestAnimationFrame(fr)}
+requestAnimationFrame(fr);
+})();
+</script>
+</body>
+</html>
